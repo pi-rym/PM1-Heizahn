@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Proyecto M1</h1>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./styles/reset.css" />
+        <link rel="stylesheet" href="./styles/styles.css" />
+    </head>
+    <body>
+        <main>
+            <section>Sobre mi</section>
+            <section>Mis tecnologías favoritas</section>
+            <section>
+                <form action="submit">
+                    <div>
+                        <label for="title">Titulo: </label>
+                        <input
+                            type="text"
+                            placeholder="Esquiar"
+                            name="title"
+                            id="title"
+                        />
+                    </div>
+                    <div>
+                        <label for="imgUrl">URL-Imagen: </label>
+                        <input
+                            type="text"
+                            placeholder="https://placeholder.com/imgen.jpg"
+                            name="imgUrl"
+                            id="imgUrl"
+                        />
+                    </div>
+                    <div>
+                        <label for="description">Descripción: </label>
+                        <input
+                            type="text"
+                            placeholder="Esquiar"
+                            name="description"
+                            id="description"
+                        />
+                    </div>
+
+                    <button>Enviar</button>
+                </form>
+                <div id="containerActivity"></div>
+            </section>
+        </main>
+    </body>
 </html>

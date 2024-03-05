@@ -1,0 +1,42 @@
+:root{
+	--bg-color: #0d0f1b;
+	--color-text: whitesmoke;
+}
+
+
+body{
+	background-color: var(--bg-color);
+	color: var(--color-text);
+
+
+	.landing-page{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		min-height: 100vh;
+
+		.about{
+			text-align: center;
+
+			h1{
+				font-size: 1.5rem;
+			}
+
+			.sub-title{
+				font-size: 1.2rem;
+				animation: subtitle ease infinite 4s;
+			}
+		}
+	}
+}
+
+
+
+@keyframes subtitle {
+	0%   {content: "";}
+	25%  {content: "Web Developer";}
+	50%  {content: "Henry Student"}
+	75% {content: "Trainer"}
+	100% {content: "";}
+}

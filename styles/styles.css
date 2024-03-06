@@ -13,18 +13,19 @@ body{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-around;
-		min-height: 100vh;
+		justify-content: space-between;
+		height: 100vh;
 
 		.about{
 			text-align: center;
 
-			h1{
-				font-size: 1.5rem;
+			.title{
+				margin-top: 1rem;
+				font-size: 1.4rem;
 			}
 
 			.sub-title {
-				font-size: 1.2rem;
+				font-size: 1rem;
 				font-weight: bold;
 				position: relative;
 				color: white;
@@ -55,8 +56,9 @@ body{
 
 
 			.paragraph{
-				padding: 1.5rem 5rem;
+				padding: 1.5rem;
 				font-size: .9rem;
+				text-align: justify;
 			}
 		}
 	}
@@ -144,4 +146,46 @@ body{
     86.67% { content: "Web_Develope"; }
     93.33% { content: "Web_Developer"; }
     100% { content: "Web_Developer!"; }
+}
+
+
+@media screen and (min-width: 426px) {
+	.landing-page{
+		.about{
+			.title{
+				font-size: 2.4rem;
+			}
+
+			.sub-title{
+				font-size: 2rem;
+			}
+			.sub-title::before,
+			.sub-title::after{
+				font-size: 1.4rem;
+			}
+			.paragraph {
+				margin: 2rem 2rem;
+		
+				p{
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 769px) {
+	.landing-page{
+		.about{
+			.title{
+				font-size: 1rem;
+			}
+			.paragraph {
+				p{
+					padding: 0 3rem;
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
 }

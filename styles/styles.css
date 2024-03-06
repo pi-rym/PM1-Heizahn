@@ -23,20 +23,125 @@ body{
 				font-size: 1.5rem;
 			}
 
-			.sub-title{
+			.sub-title {
 				font-size: 1.2rem;
-				animation: subtitle ease infinite 4s;
+				font-weight: bold;
+				position: relative;
+				color: white;
+			}
+
+			.sub-title::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				animation: text-animation 6s ease 2;
+			}
+
+			.sub-title::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				white-space: nowrap;
+				overflow: hidden;
+				animation: text-animation_2 1.6s ease forwards;
+				animation-delay: 12s;
+			}
+
+
+			.paragraph{
+				padding: 1.5rem 5rem;
+				font-size: .9rem;
 			}
 		}
 	}
 }
 
+@keyframes text-animation {
+    0% { content: ""; }
+    1.66% { content: ""; }
+    3.22% { content: "W"; }
+    4.92% { content: "We"; }
+    6.54% { content: "Web"; }
+    8.3% { content: "Web_"; }
+    9.96% { content: "Web_D"; }
+    11.62% { content: "Web_De"; }
+    13.28% { content: "Web_Dev"; }
+    14.94% { content: "Web_Deve"; }
+    16.6% { content: "Web_Devel"; }
+    18.26% { content: "Web_Develo"; }
+    19.92% { content: "Web_Develop"; }
+    21.58% { content: "Web_Develope"; }
+    23.24% { content: "Web_Developer"; }
+    24.9% { content: "Web_Developer!"; animation-delay: -3s; }
+    26.56% { content: "Web_Developer!"; animation-delay: -3s; }
+    28.22% { content: "Web_Developer"; }
+    29.88% { content: "Web_Develope"; }
+    31.54% { content: "Web_Develop"; }
+    33.2% { content: "Web_Develo"; }
+    34.86% { content: "Web_Devel"; }
+    36.52% { content: "Web_Deve"; }
+    38.18% { content: "Web_Dev"; }
+    39.84% { content: "Web_De"; }
+    41.5% { content: "Web_D"; }
+    43.16% { content: "Web_"; }
+    44.82% { content: "Web"; }
+    46.48% { content: "We"; }
+    48.14% { content: "W"; }
+    49.8% { content: ""; }
+    51.66% { content: ""; }
+    53.22% { content: "H"; }
+    54.92% { content: "He"; }
+    56.54% { content: "Hen"; }
+    58.3% { content: "Henr"; }
+    59.96% { content: "Henry"; }
+    61.62% { content: "Henry_"; }
+    63.28% { content: "Henry_S"; }
+    64.94% { content: "Henry_St"; }
+    66.6% { content: "Henry_Stu"; }
+    68.26% { content: "Henry_Stud"; }
+    69.92% { content: "Henry_Stude"; }
+    71.58% { content: "Henry_Studen"; }
+    73.24% { content: "Henry_Student"; }
+    74.9% { content: "Henry_Student!"; animation-delay: -3s; }
+    76.56% { content: "Henry_Student!"; animation-delay: -3s; }
+    78.22% { content: "Henry_Student"; }
+    79.88% { content: "Henry_Studen"; }
+    81.54% { content: "Henry_Stude"; }
+    83.2% { content: "Henry_Stud"; }
+    84.86% { content: "Henry_Stu"; }
+    86.52% { content: "Henry_St"; }
+    88.18% { content: "Henry_S"; }
+    89.84% { content: "Henry_"; }
+    91.5% { content: "Henry"; }
+    93.16% { content: "Henr"; }
+    94.82% { content: "Hen"; }
+    96.48% { content: "He"; }
+    98.14% { content: "H"; }
+    99.8% { content: ""; }
+    100% { content: ""; }
+}
 
-
-@keyframes subtitle {
-	0%   {content: "";}
-	25%  {content: "Web Developer";}
-	50%  {content: "Henry Student"}
-	75% {content: "Trainer"}
-	100% {content: "";}
+@keyframes text-animation_2 {
+    0% { content: ""; }
+    6.67% { content: ""; }
+    13.33% { content: "W"; }
+    20% { content: "We"; }
+    26.67% { content: "Web"; }
+    33.33% { content: "Web_"; }
+    40% { content: "Web_D"; }
+    46.67% { content: "Web_De"; }
+    53.33% { content: "Web_Dev"; }
+    60% { content: "Web_Deve"; }
+    66.67% { content: "Web_Devel"; }
+    73.33% { content: "Web_Develo"; }
+    80% { content: "Web_Develop"; }
+    86.67% { content: "Web_Develope"; }
+    93.33% { content: "Web_Developer"; }
+    100% { content: "Web_Developer!"; }
 }

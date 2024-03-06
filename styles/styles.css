@@ -16,7 +16,6 @@ body{
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
-		height: 100vh;
 
 		.about{
 			text-align: center;
@@ -58,9 +57,20 @@ body{
 
 
 			.paragraph{
-				padding: 1.8rem;
-				font-size: 1rem;
-				text-align: justify;
+				
+				text-align: center;
+				background-color: var(--technology-bg-color);
+				padding: 2rem;
+				border-radius: 16px;
+				h3{
+					font-size: 1.4rem;
+					margin-bottom: .6rem;
+				}
+				
+				p{
+					font-size: 1rem;
+					text-align: justify;
+				}
 			}
 		}
 
@@ -72,20 +82,22 @@ body{
 			align-items: center;
 			background-color: var(--technology-bg-color);
 			border-radius: 16px 16px 0 0;
+			margin: 1rem 0;
 			h2{
-				font-size: 1.4rem;
-				padding: .6rem 0;
+				margin-top: .6rem;
+				font-size: 1.6rem;
 			}
 
 			.references{
-				
-				margin-bottom: 2rem;
 
+				padding: 1rem 1rem 0 1rem;
 				.card{
+
 					width: 220px;
 					filter: grayscale(1);
 					border-radius: 8px;
 					transition: all .4s ease;
+
 					h4{
 						margin: .4rem 0;
 						transform: translateY(2rem);
@@ -94,8 +106,7 @@ body{
 
 					img {
 						width: 100%;
-					border-radius: 8px;
-
+						border-radius: 16px;
 					}
 				}
 
@@ -200,7 +211,7 @@ body{
 }
 
 
-@media screen and (min-width: 426px) {
+@media screen and (min-width: 600px) {
 	.landing-page{
 		.about{
 			.title{
@@ -213,7 +224,7 @@ body{
 				font-size: 1.6rem;
 			}
 			.paragraph {
-				margin: 2rem 2rem;
+				margin: 2rem 0;
 		
 				p{
 					font-size: 1.2rem;
@@ -229,8 +240,7 @@ body{
 				display: grid;
 				grid-template-columns: repeat(2, 220px);
 				gap: 16px;
-
-			
+				padding: 2rem 6rem;
 		}
 	}
 	}
@@ -239,6 +249,8 @@ body{
 @media screen and (min-width: 769px) {
 	.landing-page{
 		.about{
+			width: 90%;
+
 			.title{
 				margin-top: 2rem;
 				font-size: 2.8rem;
@@ -248,23 +260,28 @@ body{
 				font-size: 2rem;
 			}
 			.paragraph {
+				margin: 3rem 0;
 				p{
 					padding: 0 3rem;
 					font-size: 1.2rem;
+				}
+
+				h3{
+					margin-bottom: 1.25rem;
+					font-size: 1.5rem;
 				}
 			}
 		}
 
 
 		.my-technology{
-			text-align: center;
-			h2{
+			width: 90%;
+			.roboto-medium{
+				margin-top: 2rem;
 				font-size: 2.4rem;
-				margin: .6rem 0;
 			}
 
 			.references{
-
 				display: grid;
 				grid-template-columns: 1fr 1fr 1fr 1fr;
 				gap: 16px;
@@ -289,16 +306,16 @@ body{
 				
 			}
 			.references:has(.item1:hover){
-				grid-template-columns: 1fr .80fr .80fr .80fr;
+				grid-template-columns: 1.2fr .95fr .95fr .95fr;
 			}
 			.references:has(.item2:hover){
-				grid-template-columns: .80fr 1fr .80fr .80fr;
+				grid-template-columns: .95fr 1.2fr .95fr .95fr;
 			}
 			.references:has(.item3:hover){
-				grid-template-columns: .80fr .80fr 1fr .80fr;
+				grid-template-columns: .95fr .95fr 1.2fr .95fr;
 			}
 			.references:has(.item4:hover){
-				grid-template-columns: .80fr .80fr .80fr 1fr;
+				grid-template-columns: .95fr .95fr .95fr 1.2fr;
 			}
 		}
 	

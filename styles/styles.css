@@ -338,9 +338,12 @@ body{
 			}
 
 			.paragraph {
+				h3{
+					font-size: 2rem;
+				}
 				p{
 					padding: 1rem 12rem;
-					font-size: 1.8rem;
+					font-size: 1.7rem;
 				}
 			}
 		}

@@ -1,5 +1,6 @@
 :root{
 	--bg-color: #0d0f1b;
+	--technology-bg-color: #191a20;
 	--color-text: whitesmoke;
 }
 
@@ -7,6 +8,7 @@
 body{
 	background-color: var(--bg-color);
 	color: var(--color-text);
+}
 
 
 	.landing-page{
@@ -20,8 +22,8 @@ body{
 			text-align: center;
 
 			.title{
-				margin-top: 1rem;
-				font-size: 1.4rem;
+				margin-top: 1.2rem;
+				font-size: 1.8rem;
 			}
 
 			.sub-title {
@@ -56,13 +58,62 @@ body{
 
 
 			.paragraph{
-				padding: 1.5rem;
-				font-size: .9rem;
+				padding: 1.8rem;
+				font-size: 1rem;
 				text-align: justify;
 			}
 		}
+
+		.my-technology{
+			text-align: center;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: var(--technology-bg-color);
+			border-radius: 16px 16px 0 0;
+			h2{
+				font-size: 1.4rem;
+				padding: .6rem 0;
+			}
+
+			.references{
+				
+				margin-bottom: 2rem;
+
+				.card{
+					width: 220px;
+					filter: grayscale(1);
+					border-radius: 8px;
+					transition: all .4s ease;
+					h4{
+						margin: .4rem 0;
+						transform: translateY(2rem);
+						visibility: hidden;
+					}
+
+					img {
+						width: 100%;
+					border-radius: 8px;
+
+					}
+				}
+
+				.card:active {
+					filter: grayscale(0);
+					transform: scale(1.02);
+					transition: all .4s ease ;
+					h4{
+						visibility: visible;
+						transform: translateY(0);
+						font-size: 1.2rem;
+						transition: .4s ease;
+					}
+				}
+			}
+		}
 	}
-}
+
 
 @keyframes text-animation {
     0% { content: ""; }
@@ -153,15 +204,13 @@ body{
 	.landing-page{
 		.about{
 			.title{
-				font-size: 2.4rem;
+				font-size: 2.2rem;
 			}
 
-			.sub-title{
-				font-size: 2rem;
-			}
+			
 			.sub-title::before,
 			.sub-title::after{
-				font-size: 1.4rem;
+				font-size: 1.6rem;
 			}
 			.paragraph {
 				margin: 2rem 2rem;
@@ -171,6 +220,19 @@ body{
 				}
 			}
 		}
+
+		.my-technology{
+			.roboto-medium{
+				font-size: 2rem;
+			}
+			.references{
+				display: grid;
+				grid-template-columns: repeat(2, 220px);
+				gap: 16px;
+
+			
+		}
+	}
 	}
 }
 
@@ -178,7 +240,12 @@ body{
 	.landing-page{
 		.about{
 			.title{
-				font-size: 1rem;
+				margin-top: 2rem;
+				font-size: 2.8rem;
+			}
+			.sub-title::before,
+			.sub-title::after{
+				font-size: 2rem;
 			}
 			.paragraph {
 				p{
@@ -187,5 +254,118 @@ body{
 				}
 			}
 		}
+
+
+		.my-technology{
+			text-align: center;
+			h2{
+				font-size: 2.4rem;
+				margin: .6rem 0;
+			}
+
+			.references{
+
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr 1fr;
+				gap: 16px;
+				transition: all .6s ease;
+
+				.card{
+					width: 100%;
+					transition: all .6s ease;
+					h4{
+						transform: translateY(-2rem);
+					}
+				}
+				.card:hover {
+					filter: grayscale(0) brightness(1.2);
+					h4{
+						visibility: visible;
+						transform: translateY(0);
+						font-size: 1.4rem;
+						transition: all .4s ease;
+					}
+				}
+				
+			}
+			.references:has(.item1:hover){
+				grid-template-columns: 1fr .80fr .80fr .80fr;
+			}
+			.references:has(.item2:hover){
+				grid-template-columns: .80fr 1fr .80fr .80fr;
+			}
+			.references:has(.item3:hover){
+				grid-template-columns: .80fr .80fr 1fr .80fr;
+			}
+			.references:has(.item4:hover){
+				grid-template-columns: .80fr .80fr .80fr 1fr;
+			}
+		}
+	
+	}
+}
+
+
+@media screen and (min-width: 1443px) {
+	.landing-page{
+		.about{
+
+			.title{
+				margin-top: 2.5rem;
+				font-size: 4rem;
+			}
+
+			.sub-title::before,
+			.sub-title::after{
+				font-size: 2.6rem;
+			}
+
+			.paragraph {
+				p{
+					padding: 1rem 12rem;
+					font-size: 1.8rem;
+				}
+			}
+		}
+
+
+		.my-technology{
+			text-align: center;
+			h2{
+				font-size: 2.4rem;
+				margin: .6rem 0;
+			}
+
+			.references{
+				grid-template-columns: .8fr .8fr .8fr .8fr;
+
+				gap: 16px;
+
+				.card:hover {
+					filter: grayscale(0);
+					transition: .4s ease;
+					h4{
+						visibility: visible;
+						transform: translateY(0);
+						font-size: 2rem;
+						transition: .4s ease;
+					}
+				}
+			}
+
+			.references:has(.item1:hover){
+				grid-template-columns: .8fr .60fr .60fr .60fr;
+			}
+			.references:has(.item2:hover){
+				grid-template-columns: .60fr .8fr .60fr .60fr;
+			}
+			.references:has(.item3:hover){
+				grid-template-columns: .60fr .60fr .8fr .60fr;
+			}
+			.references:has(.item4:hover){
+				grid-template-columns: .60fr .60fr .60fr .8fr;
+			}
+		}
+	
 	}
 }

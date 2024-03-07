@@ -1,7 +1,9 @@
 :root{
-	--bg-color: #0d0f1b;
+	--bg-color: #0f1018;
 	--technology-bg-color: #191a20;
 	--color-text: whitesmoke;
+	--bg-color-btn: #0c0a12;
+
 }
 
 
@@ -60,7 +62,8 @@ body{
 				
 				text-align: center;
 				background-color: var(--technology-bg-color);
-				padding: 2rem;
+				padding:.5rem 2rem 2rem 2rem;
+				margin-top: 1.4rem;
 				border-radius: 16px;
 				h3{
 					font-size: 1.4rem;
@@ -81,7 +84,7 @@ body{
 			flex-direction: column;
 			align-items: center;
 			background-color: var(--technology-bg-color);
-			border-radius: 16px 16px 0 0;
+			border-radius: 16px;
 			margin: 1rem 0;
 			h2{
 				margin-top: .6rem;
@@ -126,7 +129,9 @@ body{
 
 		.activity{
 			margin-bottom: 1rem;
+			border-radius: 16px;
 			width: 100%;
+			background-color: var(--technology-bg-color);
 			form {
 				display: flex;
 				flex-direction: column;
@@ -144,6 +149,10 @@ body{
 						font-size: 1.2rem;
 						padding: .2rem 1rem;
 						outline: none;
+						background-color: var(--bg-color);
+						border:1px solid transparent;
+						border-radius: 8px;
+						color: var(--color-text);
 					}
 
 					textarea{
@@ -151,7 +160,16 @@ body{
 						outline: none;
 						padding: .2rem 1rem;
 						resize: none;
-						
+						height: 98px;
+						background-color: var(--bg-color);
+						border:1px solid transparent;
+						border-radius: 8px;
+						color: var(--color-text);
+					}
+
+					input:focus, textarea:focus{
+						border: 1px solid var(--color-text);
+						transition: .3s ease-in-out;
 					}
 				}
 
@@ -164,17 +182,31 @@ body{
 					align-self: center;
 					padding: .6rem ;
 					margin-top: .6rem;
+					color: var(--color-text);
+					background-color: var(--bg-color-btn);
+					border: none;
+					border-radius: 12px;
+					transition: all .2 ease;
+				}
+
+				button:active{
+					width: 35%;
+					transform: scale(.9);
 				}
 			}
 
-			#containerActivity{
-				h2{
-					font-size: 1.4rem;
-					text-align: center;
-					margin-bottom: .5rem;
-				}
+		}
+		#containerActivity{
+			h2{
+				font-size: 1.4rem;
+				text-align: center;
+				margin-bottom: 1rem;
 			}
 		}
+	}
+
+	footer{
+		padding-bottom: .6rem;
 	}
 
 
@@ -304,7 +336,7 @@ body{
 			width: 90%;
 
 			.title{
-				margin-top: 2rem;
+				margin-top: 1rem;
 				font-size: 2.8rem;
 			}
 			.sub-title::before,
@@ -312,7 +344,7 @@ body{
 				font-size: 2rem;
 			}
 			.paragraph {
-				margin: 3rem 0;
+				margin: 3rem 0 1rem 0;
 				p{
 					padding: 0 3rem;
 					font-size: 1.2rem;
@@ -375,7 +407,7 @@ body{
 			margin-bottom: 1.2rem;
 			width: 90%;
 			form {
-				padding: 0;
+				padding: 1.4rem 2rem;
 				.inputs{
 					font-size: 1.4rem;
 					
@@ -383,8 +415,6 @@ body{
 						font-size: 1.4rem;
 						padding: .3rem 1rem;
 					}
-
-					
 
 					#description{
 						font-size: 1.4rem;
@@ -397,6 +427,12 @@ body{
 					font-size: 1.4rem;
 					width: 20%;
 					align-self: flex-start;
+				}
+				button:hover{
+					filter: brightness(2.5);
+				}
+				button:active{
+					width: 19.5%;
 				}
 			}
 

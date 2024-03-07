@@ -58,9 +58,9 @@
                     </article>
                 </div>
             </section>
-            <section>
-                <form action="submit">
-                    <div>
+            <section class="activity">
+                <form action="submit" class="roboto-regular">
+                    <div class="input-1 inputs">
                         <label for="title">Titulo:</label>
                         <input
                             type="text"
@@ -69,16 +69,7 @@
                             id="title"
                         />
                     </div>
-                    <div>
-                        <label for="imgUrl">URL-Imagen:</label>
-                        <input
-                            type="text"
-                            placeholder="https://placeholder.com/imgen.jpg"
-                            name="imgUrl"
-                            id="imgUrl"
-                        />
-                    </div>
-                    <div>
+                    <div class="input-2 inputs">
                         <label for="description">Descripción:</label>
                         <input
                             type="text"
@@ -87,11 +78,21 @@
                             id="description"
                         />
                     </div>
-
+                    <di class="input3 inputs">
+                        <label for="imgUrl">URL-Imagen:</label>
+                        <input
+                            type="text"
+                            placeholder="https://placeholder.com/imgen.jpg"
+                            name="imgUrl"
+                            id="imgUrl"
+                        />
+                    </di>
                     <button>Enviar</button>
                 </form>
                 <div id="containerActivity"></div>
             </section>
         </main>
+        <footer><p class="roboto-regular">Web Created by Heizahn</p></footer>
+        <script src="./scripts/index.js"></script>
     </body>
 </html>

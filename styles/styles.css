@@ -123,6 +123,48 @@ body{
 				}
 			}
 		}
+
+		.activity{
+			margin-bottom: 1rem;
+			width: 100%;
+			form {
+				display: flex;
+				flex-direction: column;
+				gap: .6rem;
+				padding: 1rem;
+
+				.inputs{
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					gap: .3rem;
+					font-size: 1.2rem;
+					
+					input{
+						font-size: 1.2rem;
+						padding: .2rem 1rem;
+						outline: none;
+					}
+				}
+
+
+				button{
+					font-size: 1.2rem;
+					width: 40%;
+					align-self: center;
+					padding: .6rem ;
+					margin-top: .6rem;
+				}
+			}
+
+			#containerActivity{
+				h2{
+					font-size: 1.4rem;
+					text-align: center;
+					margin-bottom: .5rem;
+				}
+			}
+		}
 	}
 
 

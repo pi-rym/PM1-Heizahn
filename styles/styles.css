@@ -145,7 +145,17 @@ body{
 						padding: .2rem 1rem;
 						outline: none;
 					}
+
+					textarea{
+						font-size: 1.2rem;
+						outline: none;
+						padding: .2rem 1rem;
+						resize: none;
+						
+					}
 				}
+
+
 
 
 				button{
@@ -358,6 +368,42 @@ body{
 			}
 			.references:has(.item4:hover){
 				grid-template-columns: .95fr .95fr .95fr 1.2fr;
+			}
+		}
+
+		.activity{
+			margin-bottom: 1.2rem;
+			width: 90%;
+			form {
+				padding: 0;
+				.inputs{
+					font-size: 1.4rem;
+					
+					input{
+						font-size: 1.4rem;
+						padding: .3rem 1rem;
+					}
+
+					
+
+					#description{
+						font-size: 1.4rem;
+					}
+					
+				}
+
+
+				button{
+					font-size: 1.4rem;
+					width: 20%;
+					align-self: flex-start;
+				}
+			}
+
+			#containerActivity{
+				h2{
+					font-size: 1.6rem;
+				}
 			}
 		}
 	

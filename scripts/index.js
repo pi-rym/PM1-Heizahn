@@ -24,8 +24,10 @@ class Repositories {
         this.activities.push(object);
     }
 
-    deleteActivity(id, arr) {
-        return arr.filter((activity) => activity.id !== activity[id]);
+    deleteActivity(id) {
+        this.activities = this.activities.filter(
+            (activity) => activity.id !== id
+        );
     }
 }
 

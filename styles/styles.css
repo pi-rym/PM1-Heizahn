@@ -160,7 +160,6 @@ body{
 						outline: none;
 						padding: .2rem 1rem;
 						resize: none;
-						height: 98px;
 						background-color: var(--bg-color);
 						border:1px solid transparent;
 						border-radius: 8px;

@@ -1,28 +1,3 @@
-const form = document.getElementById("form1");
-
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    let title = document.getElementById("title");
-    let description = document.getElementById("description");
-    let imgUrl = document.getElementById("imgUrl");
-    let id = repositories.getAllActivities().length + 1;
-    let actividad = new Activity(
-        id,
-        title.value,
-        description.value,
-        imgUrl.value
-    );
-
-    setTimeout(() => {
-        title.value = "";
-        description.value = "";
-        imgUrl.value = "";
-    }, 100);
-
-    recibirActividad(actividad);
-});
-
 class Activity {
     constructor(id, title, description, imgUrl) {
         this.id = id;
@@ -52,12 +27,33 @@ class Repositories {
     }
 }
 
+const form = document.getElementById("form1");
 const repositories = new Repositories();
-
-const noActivity = `<h2>¡No hay Actividad!</h2>`;
 const activityBox = document.getElementById("containerActivity");
+const noActivity = `<h2>¡No hay Actividad!</h2>`;
 
-if (repositories.activities.length === 0) activityBox.innerHTML = noActivity;
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    let title = document.getElementById("title");
+    let description = document.getElementById("description");
+    let imgUrl = document.getElementById("imgUrl");
+    let id = repositories.getAllActivities().length + 1;
+    let actividad = new Activity(
+        id,
+        title.value,
+        description.value,
+        imgUrl.value
+    );
+
+    setTimeout(() => {
+        title.value = "";
+        description.value = "";
+        imgUrl.value = "";
+    }, 100);
+
+    recibirActividad(actividad);
+});
 
 function recibirActividad({ id, title, description, imgUrl }) {
     repositories.createActivity({ id, title, description, imgUrl });
@@ -73,7 +69,7 @@ function actualizarVista() {
             const div = document.createElement("div");
 
             div.innerHTML += `
-            <div class="cardActivity">
+            <div class="cardActivity" onclick="eliminarActividad(${item.id})">
                 <h2>${item.title}</h2>
                 <img src=${
                     item.imgUrl
@@ -82,5 +78,14 @@ function actualizarVista() {
             </div>`;
             activityBox.appendChild(div);
         });
+    } else {
+        activityBox.innerHTML = noActivity;
     }
 }
+
+function eliminarActividad(id) {
+    repositories.deleteActivity(id);
+    actualizarVista();
+}
+
+actualizarVista();

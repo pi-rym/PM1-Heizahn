@@ -59,7 +59,7 @@
                 </div>
             </section>
             <section class="activity">
-                <form action="submit" class="roboto-regular">
+                <form action="submit" class="roboto-regular" id="form1">
                     <div class="input-1 inputs">
                         <label for="title">Titulo:</label>
                         <input
@@ -67,6 +67,7 @@
                             placeholder="Esquiar"
                             name="title"
                             id="title"
+                            required
                         />
                     </div>
                     <div class="input-2 inputs">
@@ -77,18 +78,20 @@
                             name="description"
                             id="description"
                             rows="4"
+                            required
                         ></textarea>
                     </div>
                     <di class="input-3 inputs">
                         <label for="imgUrl">URL-Imagen:</label>
                         <input
-                            type="text"
+                            type="url"
                             placeholder="https://placeholder.com/imgen.jpg"
                             name="imgUrl"
                             id="imgUrl"
+                            required
                         />
                     </di>
-                    <button>Enviar</button>
+                    <button id="btnSubmit">Enviar</button>
                 </form>
             </section>
             <div id="containerActivity"></div>

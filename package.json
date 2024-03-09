@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "jasmine": "^5.1.0",
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "uuid": "^9.0.1"
   }
 }

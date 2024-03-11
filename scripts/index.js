@@ -18,12 +18,26 @@ class Repositories {
 
     createActivity(object) {
         this.activities.push(object);
+
+        setTimeout(() => {
+            localStorage.setItem(
+                "object",
+                JSON.stringify(repositories.getAllActivities())
+            );
+        }, 100);
     }
 
     deleteActivity(id) {
         this.activities = this.activities.filter(
             (activity) => activity.id !== id
         );
+
+        setTimeout(() => {
+            localStorage.setItem(
+                "object",
+                JSON.stringify(repositories.getAllActivities())
+            );
+        }, 100);
     }
 }
 
@@ -31,6 +45,12 @@ const form = document.getElementById("form1");
 const repositories = new Repositories();
 const activityBox = document.getElementById("containerActivity");
 const noActivity = `<h2>¡No hay Actividad!</h2>`;
+const saveActivities = JSON.parse(localStorage.getItem("object"));
+if (saveActivities) {
+    for (let activity of saveActivities) {
+        repositories.createActivity(activity);
+    }
+}
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -59,12 +79,16 @@ function recibirActividad({ id, title, description, imgUrl }) {
     repositories.createActivity({ id, title, description, imgUrl });
 
     activityBox.innerHTML = "";
-    actualizarVista();
+
+    setTimeout(() => {
+        actualizarVista();
+    }, 500);
 }
 
 function actualizarVista() {
     if (repositories.activities.length > 0) {
         const repos = repositories.getAllActivities();
+        activityBox.innerHTML = "";
         repos.map((item) => {
             const div = document.createElement("div");
 
@@ -85,7 +109,10 @@ function actualizarVista() {
 
 function eliminarActividad(id) {
     repositories.deleteActivity(id);
-    actualizarVista();
+
+    setTimeout(() => {
+        actualizarVista();
+    }, 500);
 }
 
 actualizarVista();

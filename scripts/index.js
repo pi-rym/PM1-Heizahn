@@ -85,16 +85,18 @@ function actualizarVista() {
         const repos = repositories.getAllActivities();
         activityBox.innerHTML = "";
         repos.map((item) => {
-            const div = document.createElement("div");
-            div.innerHTML += `
+            const div = `
             <div class="cardActivity" onclick="eliminarActividad('${item.id}')">
                 <h2>${item.title}</h2>
                 <img src=${
                     item.imgUrl
                 } alt="Esta imagen representa la siguiente actividad ${item.title.toLowerCase()}"/>
-                <p>${item.description}</p>
+                <p>${item.description.replace(
+                    item.description[0],
+                    item.description[0].toUpperCase()
+                )}</p>
             </div>`;
-            activityBox.appendChild(div);
+            activityBox.innerHTML += div;
         });
     } else {
         activityBox.innerHTML = noActivity;

@@ -61,7 +61,7 @@ form.addEventListener("submit", (event) => {
     let description = document.getElementById("description");
     let imgUrl = document.getElementById("imgUrl");
 
-    recibirActividad(title.value, description.value, imgUrl.value);
+    receiveActivity(title.value, description.value, imgUrl.value);
 
     setTimeout(() => {
         title.value = "";
@@ -70,23 +70,23 @@ form.addEventListener("submit", (event) => {
     }, 100);
 });
 
-function recibirActividad(title, description, imgUrl) {
+function receiveActivity(title, description, imgUrl) {
     repositories.createActivity(title, description, imgUrl);
 
     activityBox.innerHTML = "";
 
     setTimeout(() => {
-        actualizarVista();
+        updateView();
     }, 300);
 }
 
-function actualizarVista() {
+function updateView() {
     if (repositories.activities.length > 0) {
         const repos = repositories.getAllActivities();
         activityBox.innerHTML = "";
         repos.map((item) => {
             const div = `
-            <div class="cardActivity" onclick="eliminarActividad('${item.id}')">
+            <div class="cardActivity" onclick="removeActivity('${item.id}')">
                 <h2>${item.title}</h2>
                 <img src=${
                     item.imgUrl
@@ -103,31 +103,78 @@ function actualizarVista() {
     }
 }
 
-function eliminarActividad(id) {
+function removeActivity(id) {
     repositories.deleteActivity(id);
 
     setTimeout(() => {
-        actualizarVista();
+        updateView();
     }, 300);
 }
 
 function idUnique() {
-    const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+    const letters = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+    ];
     const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     let key = [];
 
-    for (let i = 0; i < 32; i++) {
-        if (i % 2 !== 0) {
-            let randomNumber = Math.floor(Math.random() * 10);
-            key.push(numbers[randomNumber]);
-        } else {
-            let randomLetter = Math.floor(Math.random() * 10);
-            key.push(letters[randomLetter].toUpperCase());
+    for (let i = 0; i < 36; i++) {
+        let ran = Math.floor(Math.random() * 2);
+        let ranLetter = Math.floor(Math.random() * 26);
+        let ranNumber = Math.floor(Math.random() * 10);
+
+        switch (ran) {
+            case 0:
+                if (i === 8 || i === 13 || i === 18 || i === 23) {
+                    key.push("-");
+                } else {
+                    key.push(numbers[ranNumber]);
+                }
+                break;
+            case 1:
+                if (i === 8 || i === 13 || i === 18 || i === 23) {
+                    key.push("-");
+                } else {
+                    key.push(letters[ranLetter]);
+                }
+                break;
+            case 2:
+                if (i === 8 || i === 13 || i === 18 || i === 23) {
+                    key.push("-");
+                } else {
+                    key.push(numbers[ranNumber]);
+                }
+                break;
         }
     }
 
     return key.join("");
 }
 
-actualizarVista();
+updateView();

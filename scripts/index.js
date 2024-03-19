@@ -26,6 +26,7 @@ class Repositories {
         }, 100);
     }
 
+    //Mis Extras
     deleteActivity(id) {
         this.activities = this.activities.filter(
             (activity) => activity.id !== id
@@ -39,10 +40,11 @@ class Repositories {
     updateActivities(object) {
         this.activities.push(object);
     }
+    //Fin
 }
 
-const form = document.getElementById("form1");
 const repositories = new Repositories();
+const form = document.getElementById("form1");
 const activityBox = document.getElementById("containerActivity");
 
 const noActivity = `<h2>¡No hay Actividad!</h2>`;
@@ -54,53 +56,74 @@ if (saveActivities) {
     }
 }
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", handlerSubmit);
+
+function createElement({ id, title, description, imgUrl }) {
+    const titleHtml = document.createElement("h3");
+    const descriptionHtml = document.createElement("p");
+    const imgHtml = document.createElement("img");
+
+    titleHtml.innerHTML = title;
+    descriptionHtml.innerHTML = description;
+    imgHtml.src = imgUrl;
+
+    titleHtml.classList.add("title");
+    descriptionHtml.classList.add("description");
+    imgHtml.classList.add("imagen");
+
+    const card = document.createElement("div");
+
+    card.appendChild(titleHtml);
+    card.appendChild(imgHtml);
+    card.appendChild(descriptionHtml);
+
+    card.classList.add("cardActivity");
+
+    card.id = id;
+    return card;
+}
+
+function updateView() {
+    if (repositories.getAllActivities().length > 0) {
+        activityBox.innerHTML = "";
+
+        let activities = repositories
+            .getAllActivities()
+            .map((item) => createElement(item));
+
+        activities.forEach((element) => {
+            activityBox.appendChild(element);
+        });
+    } else {
+        activityBox.innerHTML = noActivity;
+    }
+}
+
+function handlerSubmit(event) {
     event.preventDefault();
 
     let title = document.getElementById("title");
     let description = document.getElementById("description");
     let imgUrl = document.getElementById("imgUrl");
 
-    receiveActivity(title.value, description.value, imgUrl.value);
+    let titleValue = title.value;
+    let descriptionValue = description.value;
+    let imgUrlValue = imgUrl.value;
+
+    if (titleValue === "" || descriptionValue === "" || imgUrlValue === "") {
+        alert("Debes ingresar todo los datos");
+        return;
+    }
+
+    repositories.createActivity(titleValue, descriptionValue, imgUrlValue);
 
     setTimeout(() => {
         title.value = "";
         description.value = "";
         imgUrl.value = "";
-    }, 100);
-});
 
-function receiveActivity(title, description, imgUrl) {
-    repositories.createActivity(title, description, imgUrl);
-
-    activityBox.innerHTML = "";
-
-    setTimeout(() => {
         updateView();
-    }, 300);
-}
-
-function updateView() {
-    if (repositories.activities.length > 0) {
-        const repos = repositories.getAllActivities();
-        activityBox.innerHTML = "";
-        repos.map((item) => {
-            const div = `
-            <div class="cardActivity" onclick="removeActivity('${item.id}')">
-                <h2>${item.title}</h2>
-                <img src=${
-                    item.imgUrl
-                } alt="Esta imagen representa la siguiente actividad ${item.title.toLowerCase()}"/>
-                <p>${item.description.replace(
-                    item.description[0],
-                    item.description[0].toUpperCase()
-                )}</p>
-            </div>`;
-            activityBox.innerHTML += div;
-        });
-    } else {
-        activityBox.innerHTML = noActivity;
-    }
+    }, 100);
 }
 
 function removeActivity(id) {

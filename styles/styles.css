@@ -214,20 +214,20 @@ body{
 			flex-direction: column;
 			gap: .4rem;	
 			
-			p{
+			.description{
 				font-size: 1.4rem;
 				text-align: justify;
 				padding: .6rem;
 			}
 
-			h2{
+			.title{
 				font-size: 2rem;
 				text-align: center;
 				padding:.3rem .6rem;
 				text-transform: uppercase;
 			}
 
-			img{
+			.imagen{
 				width: 100%;
 			};
 		}
@@ -586,11 +586,12 @@ footer{
 			}
 
 			.cardActivity{
-				h2{
+				.title{
 					font-size: 2.4rem;
 					padding: .8rem 0;
 				}
-				p{
+				
+				.description{
 					font-size: 1.8rem;
 					padding: .8rem;
 

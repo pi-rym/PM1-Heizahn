@@ -7,7 +7,7 @@ class Activity {
     }
 }
 
-class Repositories {
+class Repository {
     constructor() {
         this.activities = [];
     }
@@ -43,7 +43,7 @@ class Repositories {
     //Fin
 }
 
-const repositories = new Repositories();
+const repositories = new Repository();
 const form = document.getElementById("form1");
 const activityBox = document.getElementById("containerActivity");
 
@@ -79,7 +79,14 @@ function createElement({ id, title, description, imgUrl }) {
 
     card.classList.add("cardActivity");
 
-    card.id = id;
+    const btnDelete = document.createElement("button");
+    btnDelete.id = id;
+    btnDelete.innerHTML = "Eliminar";
+
+    btnDelete.onclick = removeActivity;
+    btnDelete.classList.add("btnDelete");
+
+    card.appendChild(btnDelete);
     return card;
 }
 
@@ -126,12 +133,16 @@ function handlerSubmit(event) {
     }, 100);
 }
 
-function removeActivity(id) {
-    repositories.deleteActivity(id);
+function removeActivity(event) {
+    let id = event.target.id;
 
-    setTimeout(() => {
-        updateView();
-    }, 300);
+    let conf = confirm("Seguro que desea ELIMINAR la actividad");
+
+    if (conf) {
+        repositories.deleteActivity(id);
+    }
+
+    updateView();
 }
 
 function idUnique() {
@@ -201,3 +212,5 @@ function idUnique() {
 }
 
 updateView();
+
+module.export = { Activity, Repository };

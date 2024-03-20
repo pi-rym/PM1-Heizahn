@@ -212,5 +212,3 @@ function idUnique() {
 }
 
 updateView();
-
-module.export = { Activity, Repository };
